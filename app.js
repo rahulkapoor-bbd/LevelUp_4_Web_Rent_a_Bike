@@ -4,9 +4,8 @@ const db = require('./dbconnection/db');
 const express = require('express');
 const apiRouter = require('./routes');
 
-/*
+
 db.connect();
-*/
 const app = express();
 
 app.use(express.json());

@@ -1,9 +1,8 @@
-const sql = require('mssql');
 require('dotenv').config();
+const sql = require('mssql');
 
-/*
 const config = {
-  server: 'localhost',
+  server: 'localhost\\SQLEXPRESS',
   database: 'BikeRental',
   options: {
     trustedConnection: true
@@ -25,5 +24,3 @@ module.exports = {
   connect: connect,
   sql: sql
 };
-
-*/
