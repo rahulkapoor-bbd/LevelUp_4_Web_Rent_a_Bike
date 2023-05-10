@@ -55,7 +55,7 @@ REFERENCES BikeType(typeId);
 ALTER TABLE Bike
 ADD CONSTRAINT FK_Bike_BikeOwner
 FOREIGN KEY (userId)
-REFERENCES BikeType(userId);
+REFERENCES Users(userId);
 
 ALTER TABLE Rentals
 ADD CONSTRAINT FK_Rentals_Bike
