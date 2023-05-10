@@ -1,11 +1,134 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title><%= title %></title>
-    <link rel='stylesheet' href='/stylesheets/style.css' />
+    <title>My Page</title>
+    <style>
+      header {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        background-color: black;
+        color: white;
+        padding: 1rem;
+      }
+      header a {
+        margin-right: 1rem;
+        color: white;
+        text-decoration: none;
+      }
+      section.left {
+        float: left;
+        width: 50%;
+        padding: 1rem;
+        box-sizing: border-box;
+      }
+      section.right {
+        float: right;
+        width: 50%;
+        padding: 1rem;
+        box-sizing: border-box;
+      }
+      .clear {
+        clear: both;
+      }
+      h1 {
+        margin-top: 0;
+        text-align: center;
+      }
+      .margin-top-fifty {
+        margin-top: 50px;
+      }
+
+      .margin-top-twenty {
+        margin-top: 20px;
+      }
+
+      footer {
+      position: absolute;
+      bottom: 0;
+      width: 100%;
+      background-color: #f2f2f2;
+      padding: 1rem;
+      text-align: center;
+      }
+
+      nav.services {
+        display: flex;
+        justify-content: space-between;
+        margin-top: 50px;
+      }
+
+     
+
+      article.service {
+        width: 30%;
+        height: 200px;
+        text-align: center;
+        padding: 1rem;
+        border: 3px solid #72ccd9;
+        background-color: beige;
+      }
+
+      .center {
+        text-align: center;
+      }
+
+      body {
+        background-color: lightgray;
+      }
+
+      p {
+        font-size: 20px;
+        font-family:Georgia, 'Times New Roman', Times, serif;
+      }
+    </style>
+
+
   </head>
   <body>
-    <h1><%= title %></h1>
-    <p>Welcome to <%= title %></p>
+    <header>
+      <nav>
+        <a href="#">Rent</a>
+        <a href="#">List</a>
+        <a href="#">Home</a>
+        <a href="#">About</a>
+      </nav>
+    </header>
+    
+    <section class="left margin-top-fifty">
+      <h1 style="font-size: 36px; font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;">UBike</h1>
+      <p class="center">A new and exciting way to commute!.</p>
+      <p class="center">No traffic. No expensive costs. No Fuss.</p>
+      <p class="center">Find your new ride now!</p>
+    </section>
+    
+    <section class="right margin-top-fifty">
+      <img src="../public/images/cyclistImage.jpg" alt="Placeholder Image">
+  
+    </section>
+    
+    <div class="margin-top-twenty">
+    <section class="services clear">
+      <h2 class="center">Our Goals</h2>
+      <nav class="services">
+        <article class="service">
+          <h3>Bike Rental Made Simple</h3>
+          <p>some information over here, im just lazy to type it out</p>
+        </article>
+        <article class="service">
+          <h3>Any Time, Any Place</h3>
+          <p>some information over here, im just lazy to type it out</p>
+        </article>
+        <article class="service">
+          <h3>We are here to help!</h3>
+          <p>some information over here, im just lazy to type it out</p>
+        </article>
+      </nav>
+    </section>
+  </div>
+    
+    <footer>
+      <p>Footer Here</p>
+    </footer>
   </body>
 </html>

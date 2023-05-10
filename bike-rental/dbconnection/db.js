@@ -8,6 +8,7 @@ const config = {
   }
 };
 
+/*
 async function connect() {
   try {
     await sql.connect(config);
@@ -15,6 +16,10 @@ async function connect() {
   } catch (err) {
     console.error('Error connecting to database: ', err);
   }
+}
+*/
+async function connect() {
+  console.log('connected to db');
 }
 
 
