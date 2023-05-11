@@ -16,9 +16,34 @@
         color: white;
         text-decoration: none;
       }
+      main ul {
+        display: flex;
+        flex-wrap: wrap;
+        margin: 0;
+        padding: 0;
+        list-style: none;
+      }
+      main li {
+        flex-basis: 30%;
+        margin: 10px;
+        border: 1px solid #ccc;
+        border-radius: 4px;
+        padding: 10px;
+      }
+
+      a {
+        text-decoration: none;
+      }
+
+      main li:hover {
+        background-color: #ccc;
+      }
+
+      p {
+        font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+      }
+
     </style>
-
-
   </head>
   <body>
     <header>
@@ -28,5 +53,23 @@
         <a href="/users">List</a>
       </nav>
     </header>
+    <main>
+      <h1>Rent A Bike</h1>
+      <ul>
+        <% data.forEach(function(bike){ %>
+          <li>
+            <!-- TODO: when clicked, router takes you to endpoint
+            ex. router.get('/bikeDetails/:bikeId', function(req, res, next) where we can then render the
+            details there and make purchase -->
+            <a href="/">
+              <h2><%= bike.bikeName %></h2>
+              <p><strong>Bike ID:</strong> <%= bike.bikeId %></p>
+              <p><strong>Bike Type:</strong> <%= bike.bikeType %></p>
+              <p><strong>Daily Rate:</strong> <%= bike.dailyRate %></p>
+              <p><strong>Availability:</strong> <%= bike.availability ? 'Available' : 'Not Available' %></p>
+          </li>
+        <% }); %>
+      </ul>
+    </main>
   </body>
 </html>
