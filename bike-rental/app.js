@@ -7,15 +7,18 @@ db.connect();
 
 const indexRouter = require('./routes/index');
 const usersRouter = require('./routes/users');
+const bikeRentalRouter = require('./routes/bikeRental');
 
 const app = express();
 app.use(express.json());
 
-// view engine setup
+// view engine setup and pages
 app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'ejs');
 app.use('/', indexRouter);
 app.use('/users', usersRouter);
+app.use('/bikeRental', bikeRentalRouter);
+
 
 
 
