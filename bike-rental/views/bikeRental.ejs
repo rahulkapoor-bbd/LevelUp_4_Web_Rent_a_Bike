@@ -17,10 +17,7 @@
       <ul>
         <% data.forEach(function(bike){ %>
           <li>
-            <!-- TODO: when clicked, router takes you to endpoint
-            ex. router.get('/bikeDetails/:bikeId', function(req, res, next) where we can then render the
-            details there and make purchase -->
-            <a href="/">
+            <a href="/bikeDetails?bikeId=<%= bike.bikeId %>">
               <h2><%= bike.bikeName %></h2>
               <p><strong>Bike ID:</strong> <%= bike.bikeId %></p>
               <p><strong>Bike Type:</strong> <%= bike.bikeType %></p>

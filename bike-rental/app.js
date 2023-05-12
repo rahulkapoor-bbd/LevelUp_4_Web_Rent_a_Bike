@@ -8,6 +8,7 @@ db.connect();
 const indexRouter = require('./routes/index');
 const usersRouter = require('./routes/users');
 const bikeRentalRouter = require('./routes/bikeRental');
+const bikeDetailsRouter = require('./routes/bikeDetails');
 
 const app = express();
 app.use(express.json());
@@ -21,6 +22,7 @@ app.set('view engine', 'ejs');
 app.use('/', indexRouter);
 app.use('/users', usersRouter);
 app.use('/bikeRental', bikeRentalRouter);
+app.use('/bikeDetails', bikeDetailsRouter);
 
 
 
