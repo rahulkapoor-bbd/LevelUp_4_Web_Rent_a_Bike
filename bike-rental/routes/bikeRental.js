@@ -1,6 +1,6 @@
 var express = require('express');
 var router = express.Router();
-
+const bikeRentalController = require('../controllers/bikeRental');
 
 // we want to write a query in our bikeRental controller that will return a list of all
 // the bike information. So that we can render it dynamically on the view
@@ -9,7 +9,7 @@ var router = express.Router();
 /*
   router.get('/', async (req, res, next) => {
   try {
-    const bikeInfo = await getBikeInfo();
+    const bikeInfo = await bikeRentalController.getBikeInfo();
     res.render('bikeRental', { data: bikeInfo });
   } catch (err) {
     next(err);
