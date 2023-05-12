@@ -12,6 +12,9 @@ const bikeRentalRouter = require('./routes/bikeRental');
 const app = express();
 app.use(express.json());
 
+// allow to server static files from this directory
+app.use(express.static('public'));
+
 // view engine setup and pages
 app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'ejs');
