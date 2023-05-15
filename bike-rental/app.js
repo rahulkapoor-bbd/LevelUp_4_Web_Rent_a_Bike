@@ -6,7 +6,7 @@ var path = require('path');
 db.connect();
 
 const indexRouter = require('./routes/index');
-const usersRouter = require('./routes/users');
+const usersRouter = require('./routes/user');
 const bikeRentalRouter = require('./routes/bikeRental');
 const bikeDetailsRouter = require('./routes/bikeDetails');
 
@@ -20,7 +20,7 @@ app.use(express.static('public'));
 app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'ejs');
 app.use('/', indexRouter);
-app.use('/users', usersRouter);
+app.use('/user', usersRouter);
 app.use('/bikeRental', bikeRentalRouter);
 app.use('/bikeDetails', bikeDetailsRouter);
 
