@@ -12,18 +12,45 @@
         <a href="/user">User Profile</a>
       </nav>
     </header>
+    <!-- need to add form action and method ex. action="/bikeDetails" method="POST"-->
+    <form>
     <main>
       <h1>Bike Details</h1>
-      <div>
-        <h2><%= bike.bikeName %></h2>
-        <p><strong>Bike ID:</strong> <%= bike.bikeId %></p>
-        <p><strong>Bike Type:</strong> <%= bike.bikeType %></p>
-        <p><strong>Daily Rate:</strong> <%= bike.dailyRate %></p>
-        <p><strong>Availability:</strong> <%= bike.availability ? 'Available' : 'Not Available' %></p>
-      </div>
-      <form>
-        <input type="submit" value="Rent Bike">
-      </form>
+      <label for="start-date">Bike Name:</label>
+      <input type="text" name="bikeName" value="<%= bike.bikeName %>" readonly><br>
+
+      <label for="start-date">Bike ID:</label>
+      <input type="text" name="bikeId" value="<%= bike.bikeId %>" readonly><br>
+
+      <label for="start-date">Bike Type:</label>
+      <input type="text" name="bikeType" value="<%= bike.bikeType %>" readonly><br>
+
+      <label for="start-date">Daily Rate:</label>
+      <input type="text" name="dailyRate" value="<%= bike.dailyRate %>" readonly><br>
+
+      <label for="start-date">Availability</label>
+      <input type="text" name="availability" value="<%= bike.availability %>" readonly><br>
     </main>
+    <section class="rentals-section">
+      <h1>Rental Details</h1>
+      <label for="start-date">Start Date:</label><br>
+      <input type="date" id="start-date" name="start-date"><br>
+    
+      <label for="end-date">End Date:</label><br>
+      <input type="date" id="end-date" name="end-date"><br>
+    </section>
+
+    <section class="checkout-section">
+      <h1>Checkout Details</h1>
+      <p>Total: </p>
+    </section>
+
+
+      <input type="submit" value="Rent Bike" class="button">
+     
+
+      </form>
+
+      <a href="/bikeRental" class="back-button">Back</a>
   </body>
 </html>
