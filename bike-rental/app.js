@@ -1,9 +1,20 @@
-
 const express = require('express');
 const db = require('./dbconnection/db');
 var path = require('path');
+const pool = require('./dbconnection/db');
 
-db.connect();
+// THIS IS THE DB CONNECTION!! this will be moved to the controller :) 
+// just a basic test
+pool.query('SELECT * FROM users', (error, results) => {
+  if (error) {
+    console.error('Error executing query:', error);
+    return;
+  }
+
+  console.log('Query results:', results);
+});
+
+
 
 const indexRouter = require('./routes/index');
 const usersRouter = require('./routes/user');
