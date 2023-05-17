@@ -16,20 +16,18 @@
     <form>
     <main>
       <h1>Bike Details</h1>
-      <label for="start-date">Bike Name:</label>
-      <input type="text" name="bikeName" value="<%= bike.bikeName %>" readonly><br>
 
       <label for="start-date">Bike ID:</label>
-      <input type="text" name="bikeId" value="<%= bike.bikeId %>" readonly><br>
-
-      <label for="start-date">Bike Type:</label>
-      <input type="text" name="bikeType" value="<%= bike.bikeType %>" readonly><br>
+      <input type="text" name="bikeId" value="<%= data.bikeId %>" readonly><br>
+     
+         <label for="start-date">Bike Type:</label>
+      <input type="text" name="bikeType" value="<%= description.description %>" readonly><br>
+     
+     
 
       <label for="start-date">Daily Rate:</label>
-      <input type="text" name="dailyRate" value="<%= bike.dailyRate %>" readonly><br>
+      <input type="text" name="dailyRate" value="<%= data.dailyRate %>" readonly><br>
 
-      <label for="start-date">Availability</label>
-      <input type="text" name="availability" value="<%= bike.availability %>" readonly><br>
     </main>
     <section class="rentals-section">
       <h1>Rental Details</h1>
