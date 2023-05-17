@@ -1,6 +1,6 @@
 const express = require('express');
 const router = express.Router();
-const bikeDetailsController = require('../controllers/bikeDetails');
+const bikeDetailsController = require('../controllers/bikeDetailsController');
 const utilsController = require('../controllers/ulilities');
 
 let selectedBike = {
