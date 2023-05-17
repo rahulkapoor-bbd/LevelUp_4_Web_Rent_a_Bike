@@ -3,7 +3,7 @@ const express = require('express');
 const db = require('./dbconnection/db');
 var path = require('path');
 
-db.connect();
+db.connect()
 
 const indexRouter = require('./routes/index');
 const usersRouter = require('./routes/user');
