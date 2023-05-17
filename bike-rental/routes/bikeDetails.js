@@ -1,6 +1,6 @@
 const express = require('express');
 const router = express.Router();
-const bikeDetailsController = require('../controllers/bikeDetails');
+const bikeDetailsController = require('../controllers/bikeDetailsController');
 
 // this is a hardcoded result of what we would expect from the actaul query :)
 let selectedBike = {
