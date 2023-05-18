@@ -11,7 +11,8 @@ const getUserInfo = (emailAddress) => {
             const userInfo = results.map((row) => ({
                 userId: row.userId,
                 firstName: row.firstname,
-                lastName: row.lastname
+                lastName: row.lastname,
+                emailAddress: row.emailAddress
             }));
             res(userInfo);
         });

@@ -19,6 +19,7 @@ router.post('/', async (req, res, next) => {
     var emailAddress = req.body.emailAddress;
 
     const userInfo = await userController.createNewUser(firstName, lastName, emailAddress);
+    console.log(firstName,lastName,emailAddress);
     res.status(201).send({ message: `Successfully created user`});
   } catch (err) {
     next(err);
