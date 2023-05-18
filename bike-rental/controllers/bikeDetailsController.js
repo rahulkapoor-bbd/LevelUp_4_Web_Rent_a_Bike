@@ -1,34 +1,41 @@
-const router = require('express').Router();
 const pool = require('../dbconnection/db')
 
 const getBikeDetails = (bikeId) => {
     return new Promise((resolve, reject) => {
-      pool.query('SELECT * FROM bike WHERE bikeId = ?', [bikeId], (error, results) => {
+      pool.query('SELECT b.bikeId, t.typeDescription, b.dailyrate FROM bike b, biketype t WHERE t.typeId = b.typeId AND b.bikeId = ?', [bikeId], (error, results) => {
         if (error) {
           console.error('Error executing query:', error);
           reject(error);
           return;
         }
-        
-        if (results.length === 0) {
-          // Bike with the specified ID was not found
-          resolve(null);
-          return;
-        }
-        
-        const bike = {
-          bikeId: results[0].bikeId,
-          typeId: results[0].typeId,
-          statusId: results[0].statusId,
-          userId: results[0].userId,
-          dailyRate: results[0].dailyRate
-        };
+                
+        const bike = results.map((row) => ({
+          bikeId: row.bikeId,
+          typeDescription: row.typeDescription,
+          dailyRate: row.dailyrate
+        }));
   
         resolve(bike);
       });
     });
-  };
+};
 
-  module.exports = {
-    getBikeDetails
-  }
+const createNewRental = (bikeId, userId, rentalStart, rentalEnd) => {
+  return new Promise((res, rej) => {
+    //const newStart = new Date(rentalStart).toLocaleDateString('en-CA');
+    //const newEnd = new Date(rentalEnd).toLocaleDateString('en-CA');
+    pool.query(`INSERT INTO rentals(bikeId, userId, rentalStart, rentalEnd) VALUES (?, ?, STR_TO_DATE( ?, "%Y-%m-%d"), STR_TO_DATE( ?, "%Y-%m-%d"))`, [bikeId, userId, rentalStart, rentalEnd], (error) => {
+          if (error) {
+              console.error('Error occured when executing query: ', error);
+              rej(error);
+              return;
+          }
+          res(true);
+      });
+  });
+};
+
+module.exports = {
+  getBikeDetails,
+  createNewRental,
+};
