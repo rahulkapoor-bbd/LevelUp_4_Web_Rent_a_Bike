@@ -3,7 +3,7 @@ const router = require('express').Router();
 
 router.get('/', async (req, res, next) => {
   try {
-    var emailAddress = req.query.emailAddress;
+    const emailAddress = req.query.emailAddress;
 
     const userInfo = await userController.getUserInfo(emailAddress);
     res.render('user', { data: userInfo });
@@ -14,9 +14,9 @@ router.get('/', async (req, res, next) => {
 
 router.post('/', async (req, res, next) => {
   try {
-    var firstName = req.body.firstname;
-    var lastName = req.body.lastname;    
-    var emailAddress = req.body.emailAddress;
+    const firstName = req.body.firstname;
+    const lastName = req.body.lastname;    
+    const emailAddress = req.body.emailAddress;
 
     const userInfo = await userController.createNewUser(firstName, lastName, emailAddress);
     console.log(firstName,lastName,emailAddress);
@@ -28,7 +28,7 @@ router.post('/', async (req, res, next) => {
 
 router.delete('/', async (req, res, next) => {
   try { 
-    var emailAddress = req.query.emailAddress;
+    const emailAddress = req.query.emailAddress;
 
     const userInfo = await userController.removeUser(emailAddress);
     res.status(201).send({ message: `Successfully updated user`});
@@ -39,10 +39,10 @@ router.delete('/', async (req, res, next) => {
 
 router.put('/', async (req, res, next) => {
   try {
-    var userId = req.body.userId;
-    var firstName = req.body.firstname;
-    var lastName = req.body.lastname;    
-    var emailAddress = req.body.emailAddress;
+    const userId = req.body.userId;
+    const firstName = req.body.firstname;
+    const lastName = req.body.lastname;    
+    const emailAddress = req.body.emailAddress;
 
     const userInfo = await userController.updateUser(userId, firstName, lastName, emailAddress);
     res.status(201).send({ message: `Successfully updated user`});

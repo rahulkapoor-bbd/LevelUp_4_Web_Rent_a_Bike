@@ -23,10 +23,10 @@ router.get('/', async (req, res, next) => {
 
 router.post('/', async (req, res, next) => {
   try {
-    var bikeId = req.body.bikeId;
-    var userId = req.body.userId;
-    var rentalStart = req.body.rentalStart;
-    var rentalEnd = req.body.rentalEnd;
+    const bikeId = req.body.bikeId;
+    const userId = req.body.userId;
+    const rentalStart = req.body.rentalStart;
+    const rentalEnd = req.body.rentalEnd;
 
     const rentalInfo = await bikeDetailsController.createNewRental(bikeId, userId, rentalStart, rentalEnd);
     res.status(201).send({ message: `Successfully created rental booking` });

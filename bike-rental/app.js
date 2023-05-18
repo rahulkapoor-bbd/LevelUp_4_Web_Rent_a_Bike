@@ -1,6 +1,6 @@
 const express = require('express');
 const db = require('./dbconnection/db');
-var path = require('path');
+const path = require('path');
 const pool = require('./dbconnection/db');
 
 const indexRouter = require('./routes/index');
