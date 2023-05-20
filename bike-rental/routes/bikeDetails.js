@@ -11,15 +11,15 @@ const bikeDetailsController = require('../controllers/bikeDetailsController');
   }*/
 
 
-router.get('/', async (req, res, next) => {
-  try {
-    const bikeId = req.query.bikeId;
-    const bike = await bikeDetailsController.getBikeDetails(bikeId);
-    res.render('bikeDetails', { data: bike });
-  } catch (err) {
-    next(err);
-  }
-});
+  router.get('/', async (req, res, next) => {
+    try {
+      const bikeId = req.query.bikeId;
+      const bike = await bikeDetailsController.getBikeDetails(bikeId);
+      res.render('bikeDetails', { bike: bike[0] }); 
+    } catch (err) {
+      next(err);
+    }
+  });
 
 router.post('/', async (req, res, next) => {
   try {
