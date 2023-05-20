@@ -1,47 +1,42 @@
-use master;
-
 CREATE DATABASE BikeRental;
-GO
 
 USE BikeRental;
-GO
 
 -- table creation
 CREATE TABLE Bike (
-    bikeId INT IDENTITY(1,1) PRIMARY KEY CLUSTERED,
-    typeId INT,
-    statusId INT,
-    userId INT,
-    dailyRate MONEY
+bikeId INT AUTO_INCREMENT PRIMARY KEY,
+typeId INT,
+statusId INT,
+userId INT,
+dailyRate DECIMAL(10, 2)
 );
 
 CREATE TABLE BikeType (
-    typeId INT IDENTITY(1,1) PRIMARY KEY CLUSTERED,
-    description VARCHAR(50)
+typeId INT AUTO_INCREMENT PRIMARY KEY,
+description VARCHAR(50)
 );
 
 CREATE TABLE BikeStatus (
-    statusId INT IDENTITY(1,1) PRIMARY KEY CLUSTERED,
-    description VARCHAR(50)
+statusId INT AUTO_INCREMENT PRIMARY KEY,
+description VARCHAR(50)
 );
 
 CREATE TABLE Rentals (
-    rentalId INT IDENTITY(1,1) PRIMARY KEY CLUSTERED,
-    bikeId INT,
-    userId INT,
-    rentalStart DATE,
-    rentalEnd DATE
+rentalId INT AUTO_INCREMENT PRIMARY KEY,
+bikeId INT,
+userId INT,
+rentalStart DATE,
+rentalEnd DATE
 );
 
 CREATE TABLE Users (
-    userId INT IDENTITY(1,1) PRIMARY KEY CLUSTERED,
-    firstname VARCHAR(50),
-    lastname VARCHAR(50),
-    emailAddress VARCHAR(100)
+userId INT AUTO_INCREMENT PRIMARY KEY,
+firstname VARCHAR(50),
+lastname VARCHAR(50),
+emailAddress VARCHAR(100)
 );
 
-
--- FK constraints 
+-- FK constraints
 ALTER TABLE Bike
 ADD CONSTRAINT FK_Bike_BikeStatus
 FOREIGN KEY (statusId)
@@ -66,7 +61,6 @@ ALTER TABLE Rentals
 ADD CONSTRAINT FK_Rentals_Users
 FOREIGN KEY(userId)
 REFERENCES Users(userId);
-
 
 -- sample data
 
@@ -98,6 +92,3 @@ INSERT INTO Rentals (bikeId, userId, rentalStart, rentalEnd) VALUES (1, 1, '2023
 INSERT INTO Rentals (bikeId, userId, rentalStart, rentalEnd) VALUES (2, 2, '2023-05-02', '2023-05-04');
 INSERT INTO Rentals (bikeId, userId, rentalStart, rentalEnd) VALUES (3, 1, '2023-05-05', '2023-05-08');
 INSERT INTO Rentals (bikeId, userId, rentalStart, rentalEnd) VALUES (4, 3, '2023-05-06', '2023-05-09');
-
-
-
