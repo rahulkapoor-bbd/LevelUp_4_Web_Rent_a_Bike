@@ -1,39 +1,58 @@
 header {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    background-color: black;
-    color: white;
-    padding: 1rem;
-  }
-  header a {
-    margin-right: 1rem;
-    color: white;
-    text-decoration: none;
-  }
-  main ul {
-    display: flex;
-    flex-wrap: wrap;
-    margin: 0;
-    padding: 0;
-    list-style: none;
-  }
-  main li {
-    flex-basis: 30%;
-    margin: 10px;
-    border: 1px solid #ccc;
-    border-radius: 4px;
-    padding: 10px;
-  }
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: black;
+  color: white;
+  padding: 1rem;
+}
 
-  a {
-    text-decoration: none;
-  }
+header a {
+  margin-right: 1rem;
+  color: white;
+  text-decoration: none;
+}
 
-  main li:hover {
-    background-color: #ccc;
-  }
+main ul {
+  display: flex;
+  flex-wrap: wrap;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  text-align: center;
+}
 
-  p {
-    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
-  }
+main li {
+  flex-basis: 30%;
+  margin: 10px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  padding: 10px;
+  height: 240px;
+  background-color: white;
+}
+
+a.bike-link {
+  display: block;
+  height: 100%;
+  text-decoration: none;
+  color: inherit;
+}
+
+main li:hover {
+  background-color: rgb(238, 250, 183);
+}
+
+p {
+  font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+}
+
+h1 {
+  text-align: center;
+  font-size: 40px;
+  font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+}
+
+body {
+  background-color: #ccc;
+}

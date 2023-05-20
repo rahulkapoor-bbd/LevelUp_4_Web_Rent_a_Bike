@@ -14,19 +14,18 @@
     </header>
     <!-- need to add form action and method ex. action="/bikeDetails" method="POST"-->
     <form>
-    <main>
-      <h1>Bike Details</h1>
-
-      <label for="start-date">Bike ID:</label>
-      <input type="text" name="bikeId" value="<%= data.bikeId %>" readonly><br>
-     
-      <label for="start-date">Bike Type:</label>
-      <input type="text" name="bikeType" value="<%= data.typeDescription %>" readonly><br>
-     
-      <label for="start-date">Daily Rate:</label>
-      <input type="text" name="dailyRate" value="<%= data.dailyRate %>" readonly><br>
-
-    </main>
+      <main>
+        <h1>Bike Details</h1>
+  
+        <label for="bikeId">Bike ID:</label>
+        <input type="text" id="bikeId" name="bikeId" value="<%= bike.bikeId %>" readonly><br>
+       
+        <label for="bikeType">Bike Type:</label>
+        <input type="text" id="bikeType" name="bikeType" value="<%= bike.typeDescription %>" readonly><br>
+       
+        <label for="dailyRate">Daily Rate:</label>
+        <input type="text" id="dailyRate" name="dailyRate" value="<%= bike.dailyRate %>" readonly><br>
+      </main>
     <section class="rentals-section">
       <h1>Rental Details</h1>
       <label for="start-date">Start Date:</label><br>
@@ -41,10 +40,7 @@
       <p>Total: </p>
     </section>
 
-
       <input type="submit" value="Rent Bike" class="button">
-     
-
       </form>
 
       <a href="/bikeRental" class="back-button">Back</a>

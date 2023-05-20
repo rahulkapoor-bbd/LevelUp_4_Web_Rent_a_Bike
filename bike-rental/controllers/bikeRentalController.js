@@ -1,8 +1,10 @@
 const pool = require('../dbconnection/db');
 
 const getBikeInfo = () => {
-    return new Promise((resolve, reject) => {
-      pool.query('SELECT b.bikeId, t.typeDescription, s.statusDescription, b.dailyrate FROM bike b, biketype t, bikestatus s WHERE t.typeId = b.typeId AND s.statusId = b.statusId', (error, results) => {
+  return new Promise((resolve, reject) => {
+    pool.query(
+      'SELECT b.bikeId, t.description AS typeDescription, s.description AS statusDescription, b.dailyRate FROM bike b JOIN biketype t ON t.typeId = b.typeId JOIN bikestatus s ON s.statusId = b.statusId',
+      (error, results) => {
         if (error) {
           console.error('Error executing query:', error);
           reject(error);
@@ -12,13 +14,14 @@ const getBikeInfo = () => {
           bikeId: row.bikeId,
           typeDescription: row.typeDescription,
           statusDescription: row.statusDescription,
-          dailyRate: row.dailyrate
+          dailyRate: row.dailyRate
         }));
-  
+
         resolve(bikeInfo);
-      });
-    });
-  };
+      }
+    );
+  });
+};
 
   module.exports = {
     getBikeInfo

@@ -1,31 +1,40 @@
 <!DOCTYPE html>
 <html>
-  <head>
-    <title>Rent A Bike</title>
-    <link rel="stylesheet" href="/stylesheets/bikerentalstyle.css">
-  </head>
-  <body>
-    <header>
-      <nav>
-        <a href="/">Home</a>
-        <a href="/bikeRental">Rentals</a>
-        <a href="/user">User Profile</a>
-      </nav>
-    </header>
-    <main>
-      <h1>Rent A Bike</h1>
-      <ul>
-        <% data.forEach(function(bike){ %>
-          <li>
-            <a href="/bikeDetails?bikeId=<%= bike.bikeId %>">
-              <h2><%= bike.bikeName %></h2>
-              <p><strong>Bike ID:</strong> <%= bike.bikeId %></p>
-              <p><strong>Bike Type:</strong> <%= bike.typeDescription %></p>
-              <p><strong>Daily Rate:</strong> <%= bike.dailyRate %></p>
-              <p><strong>Availability:</strong> <%= bike.statusDescription %></p>
-          </li>
-        <% }); %>
-      </ul>
-    </main>
-  </body>
+<head>
+  <title>Rent A Bike</title>
+  <link rel="stylesheet" href="/stylesheets/bikerentalstyle.css">
+</head>
+<body>
+  <header>
+    <nav>
+      <a href="/">Home</a>
+      <a href="/bikeRental">Rentals</a>
+      <a href="/user">User Profile</a>
+    </nav>
+  </header>
+  <main>
+    <h1>Rent A Bike</h1>
+    <ul>
+      <% data.forEach(function(bike){ %>
+        <li>
+          <% if (bike.statusDescription === 'Available') { %>
+            <a class="bike-link" href="/bikeDetails?bikeId=<%= bike.bikeId %>">
+          <% } %>
+          <h2><%= bike.bikeName %></h2>
+          <p><strong>Bike ID:</strong> <%= bike.bikeId %></p>
+          <p><strong>Bike Type:</strong> <%= bike.typeDescription %></p>
+          <p><strong>Daily Rate:</strong> <%= bike.dailyRate %></p>
+          <% if (bike.statusDescription === 'Available') { %>
+            <p style="color: green;"><strong>Availability:</strong> <%= bike.statusDescription %></p>
+          <% } else { %>
+            <p style="color: red;"><strong>Availability:</strong> <%= bike.statusDescription %></p>
+          <% } %>
+          <% if (bike.statusDescription === 'Available') { %>
+            </a>
+          <% } %>
+        </li>
+      <% }); %>
+    </ul>
+  </main>
+</body>
 </html>
