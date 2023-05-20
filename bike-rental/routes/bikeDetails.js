@@ -1,15 +1,5 @@
 const router = require('express').Router();
 const bikeDetailsController = require('../controllers/bikeDetailsController');
-//const rentalController = require('../controllers/rentalController');
-
-/*let selectedBike = {
-    bikeId: 1,
-    bikeName: 'Roadster',
-    bikeType: 'Road Bike',
-    dailyRate: '$6',
-    availability: true
-  }*/
-
 
   router.get('/', async (req, res, next) => {
     try {
