@@ -1,3 +1,5 @@
+/* could move the footer and nav bar styles into a central css location */
+
 header {
   display: flex;
   justify-content: space-between;
@@ -50,24 +52,30 @@ footer {
 position: absolute;
 bottom: 0;
 width: 100%;
-background-color: #f2f2f2;
+background-color: #5f5e5e;
 padding: 1rem;
 text-align: center;
 }
 
 nav.services {
   display: flex;
-  justify-content: space-between;
+  justify-content: space-evenly;
   margin-top: 50px;
 }
 
 article.service {
-  width: 30%;
+  width: 28%;
   height: 200px;
   text-align: center;
   padding: 1rem;
   border: 3px solid #000000;
-  background-color: beige;
+  background-color: white;
+  transition: transform 0.3s ease;
+}
+
+/* using basic a  */
+article.service:hover {
+  transform: scale(1.05);
 }
 
 .center {
@@ -75,7 +83,7 @@ article.service {
 }
 
 body {
-  background-color: lightgray;
+  background-color:aliceblue;
 }
 
 p, label, input {
@@ -86,6 +94,23 @@ p, label, input {
 img {
   display: block;
   margin: auto;
-  width: 250px;
+  width: 350px;
   height: 250px;
+}
+
+main {
+  background-color: rgb(90, 188, 245, 0.3);
+}
+
+/* using ::after to contain float style in the section style part */
+main::after {
+  content: "";
+  display: table;
+  clear: both;
+}
+
+.footer-text {
+  font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+  font-size: 24px;
+  font-weight: bold;
 }
