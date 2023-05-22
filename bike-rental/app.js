@@ -2,6 +2,7 @@ const express = require('express');
 const db = require('./dbconnection/db');
 var path = require('path');
 const pool = require('./dbconnection/db');
+const bodyParser = require('body-parser');
 
 const indexRouter = require('./routes/index');
 const usersRouter = require('./routes/user');
@@ -10,6 +11,9 @@ const bikeDetailsRouter = require('./routes/bikeDetails');
 
 const app = express();
 app.use(express.json());
+
+// allows us to parse the form data sent in request body (for our post method)
+app.use(bodyParser.urlencoded({extended: true}));
 
 // allow to server static files from this directory
 app.use(express.static('public'));
