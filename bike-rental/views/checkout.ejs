@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Checkout</title>
+    <link rel="stylesheet" href="/stylesheets/checkout.css">
+  </head>
+  <body>
+
+    <header>
+        <nav>
+          <a href="/">Home</a>
+          <a href="/bikeRental">Rentals</a>
+          <a href="/user">User Profile</a>
+        </nav>
+      </header>
+    <main>
+        <form action="/checkout" method="post">
+            <h1>Checkout</h1>
+            <p>Bike ID: <%= bikeId %></p>
+            <p>Bike Type: <%= bikeType %></p>
+            <p>Daily Rate: <%= dailyRate %></p>
+            <p>Start Date: <%= startDate %></p>
+            <p>End Date: <%= endDate %></p>
+            <p>Total: <%= total %></p>
+          
+            <!-- Hidden input fields -->
+            <input type="hidden" name="bikeId" value="<%= bikeId %>">
+            <input type="hidden" name="bikeType" value="<%= bikeType %>">
+            <input type="hidden" name="dailyRate" value="<%= dailyRate %>">
+            <input type="hidden" name="startDate" value="<%= startDate %>">
+            <input type="hidden" name="endDate" value="<%= endDate %>">
+            <input type="hidden" name="total" value="<%= total %>">
+          
+            <input type="submit" value="Checkout" class="button">
+          </form>
+    </main>
+
+    <!-- Additional form or content for checkout page -->
+  </body>
+</html>
