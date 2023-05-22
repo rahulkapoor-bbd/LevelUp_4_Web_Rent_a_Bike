@@ -8,6 +8,7 @@ const indexRouter = require('./routes/index');
 const usersRouter = require('./routes/user');
 const bikeRentalRouter = require('./routes/bikeRental');
 const bikeDetailsRouter = require('./routes/bikeDetails');
+const checkoutRouter = require('./routes/checkout');
 
 const app = express();
 app.use(express.json());
@@ -25,6 +26,7 @@ app.use('/', indexRouter);
 app.use('/user', usersRouter);
 app.use('/bikeRental', bikeRentalRouter);
 app.use('/bikeDetails', bikeDetailsRouter);
+app.use('/checkout', checkoutRouter)
 
 
 app.listen(3000, () => {
