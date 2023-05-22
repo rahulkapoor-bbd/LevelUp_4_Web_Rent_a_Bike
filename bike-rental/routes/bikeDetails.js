@@ -25,4 +25,16 @@ router.post('/', async (req, res, next) => {
   }
 });
 
+router.put('/', async (req, res, next) => {
+  try {
+    var statusId = req.body.statusId;
+    var bikeId = req.body.bikeId;
+
+    const rentalInfo = await bikeDetailsController.updateBikeStatus(statusId, bikeId);
+    res.status(201).send({ message: `Successfully updated bike rental status` });
+  } catch (err) {
+    next(err)
+  }
+});
+
 module.exports = router;

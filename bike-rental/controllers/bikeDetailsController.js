@@ -34,12 +34,32 @@ const createNewRental = (bikeId, userId, rentalStart, rentalEnd) => {
               rej(error);
               return;
           }
-          res(true);
+      res(true);
+      
+      updateBikeStatus(2, bikeId);
       });
+  });
+};
+
+const updateBikeStatus = (statusId, bikeId) => {
+
+  console.log(statusId)
+  console.log(bikeId);
+  return new Promise((res, rej) => {
+    
+    pool.query(`UPDATE bike SET statusId = ? WHERE bikeId = ?`, [statusId, bikeId], (error) => {
+      if (error) {
+        console.error('Error occured when executing query: ', error);
+        rej(error);
+        return;
+    }
+    res(true);
+    });
   });
 };
 
 module.exports = {
   getBikeDetails,
   createNewRental,
+  updateBikeStatus,
 };
