@@ -22,6 +22,7 @@ router.post('/', async (req, res, next) => {
     var rentalEnd = req.body['end-date'];
 
     const rentalInfo = await bikeDetailsController.createNewRental(bikeId, userId, rentalStart, rentalEnd);
+    await bikeDetailsController.updateBikeStatus(2, bikeId);
     res.status(201).send({ message: `Successfully created rental booking` });
   } catch (err) {
     next(err)
