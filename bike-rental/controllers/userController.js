@@ -18,6 +18,19 @@ const getUserInfo = (emailAddress) => {
     });
 };
 
+const getAdminID = () => {
+    return new Promise((res, rej) => {
+      pool.query('SELECT userId FROM users WHERE isAdmin = 1', (error, results) => {
+        if (error) {
+          console.error('Error occurred when executing query: ', error);
+          rej(error);
+          return;
+        }
+        res(results);
+      });
+    });
+  };
+
 /*const createNewUser = (firstname, lastname, emailAddress) => {
     return new Promise((res, rej) => {
         pool.query(`INSERT INTO users(firstname, lastname, emailAddress) VALUES (?, ?, ?)`, [firstname, lastname, emailAddress], (error) => {
@@ -64,4 +77,5 @@ module.exports = {
     //createNewUser,
     removeUser,
     updateUser,
+    getAdminID
 };
