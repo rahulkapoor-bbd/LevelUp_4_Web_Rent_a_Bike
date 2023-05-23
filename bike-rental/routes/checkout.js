@@ -21,9 +21,9 @@ router.get('/', function(req, res, next) {
   router.post('/', async (req, res, next) => {
     try {
       
-      // TODO: Fetch the userId from the logged-in user instead of hardcoding
       var bikeId = req.body.bikeId;
-      var userId = 1;
+      var user = req.session.user;
+      var userId = user.userId;
       var rentalStart = req.body.startDate;
       var rentalEnd = req.body.endDate;
   
