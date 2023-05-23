@@ -33,7 +33,9 @@ CREATE TABLE Users (
 userId INT AUTO_INCREMENT PRIMARY KEY,
 firstname VARCHAR(50),
 lastname VARCHAR(50),
-emailAddress VARCHAR(100)
+emailAddress VARCHAR(100),
+[password] VARCHAR(256),
+passwordSalt VARCHAR(64)
 );
 
 -- FK constraints
