@@ -11,6 +11,7 @@ const bikeRentalRouter = require('./routes/bikeRental');
 const bikeDetailsRouter = require('./routes/bikeDetails');
 const authRouter = require('./routes/userAuth');
 const checkoutRouter = require('./routes/checkout');
+const adminRouter = require('./routes/admin');
 
 
 const app = express();
@@ -50,6 +51,7 @@ app.use('/user', requireAuth, usersRouter);
 app.use('/bikeRental', requireAuth, bikeRentalRouter);
 app.use('/bikeDetails', requireAuth, bikeDetailsRouter);
 app.use('/checkout', requireAuth, checkoutRouter);
+app.use('/admin', requireAuth, adminRouter);
 
 app.listen(3000, () => {
   console.log('Listening on '+ 3000);
