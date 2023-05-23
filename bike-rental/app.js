@@ -52,7 +52,7 @@ app.use('/bikeRental', bikeRentalRouter);
 app.use('/bikeDetails', bikeDetailsRouter);
 app.use('/checkout', checkoutRouter)
 
-app.listen(3000, () => {
+app.listen(3000,"0.0.0.0" , () => {
   console.log('Listening on '+ 3000);
 });
 
