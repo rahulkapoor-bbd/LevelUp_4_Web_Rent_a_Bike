@@ -11,6 +11,7 @@ const bikeRentalRouter = require('./routes/bikeRental');
 const bikeDetailsRouter = require('./routes/bikeDetails');
 const authRouter = require('./routes/userAuth');
 const checkoutRouter = require('./routes/checkout');
+const adminRouter = require('./routes/admin');
 
 
 const app = express();
@@ -45,12 +46,12 @@ app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'ejs');
 app.use('/', authRouter);
 app.use('/login', authRouter); // Login route does not require authentication
-app.use('/', requireAuth, authRouter); // Protect index route with authentication
-app.use('/', indexRouter);
-app.use('/user', usersRouter);
-app.use('/bikeRental', bikeRentalRouter);
-app.use('/bikeDetails', bikeDetailsRouter);
-app.use('/checkout', checkoutRouter)
+app.use('/', requireAuth, indexRouter); // Protect index route with authentication
+app.use('/user', requireAuth, usersRouter);
+app.use('/bikeRental', requireAuth, bikeRentalRouter);
+app.use('/bikeDetails', requireAuth, bikeDetailsRouter);
+app.use('/checkout', requireAuth, checkoutRouter);
+app.use('/admin', requireAuth, adminRouter);
 
 app.listen(3000, () => {
   console.log('Listening on '+ 3000);
