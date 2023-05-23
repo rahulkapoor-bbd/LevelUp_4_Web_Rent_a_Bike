@@ -1,0 +1,21 @@
+
+header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: black;
+    color: white;
+    padding: 1rem;
+  }
+  header a {
+    margin-right: 1rem;
+    color: white;
+    text-decoration: none;
+  }
+
+
+
+main {
+    text-align: center;
+    margin-top: 100px;
+}

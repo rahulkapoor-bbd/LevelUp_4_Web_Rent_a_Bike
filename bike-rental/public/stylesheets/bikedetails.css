@@ -1,3 +1,5 @@
+/* could move the footer and nav bar styles into a central css location */
+
 header {
     display: flex;
     justify-content: space-between;

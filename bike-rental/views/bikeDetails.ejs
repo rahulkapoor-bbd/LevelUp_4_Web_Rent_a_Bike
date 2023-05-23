@@ -12,8 +12,7 @@
         <a href="/user">User Profile</a>
       </nav>
     </header>
-    <!-- need to add form action and method ex. action="/bikeDetails" method="POST"-->
-    <form>
+    <form action="/checkout" method="get">
       <main>
         <h1>Bike Details</h1>
   
@@ -23,8 +22,8 @@
         <label for="bikeType">Bike Type:</label>
         <input type="text" id="bikeType" name="bikeType" value="<%= bike.typeDescription %>" readonly><br>
        
-        <label for="dailyRate">Daily Rate:</label>
-        <input type="text" id="dailyRate" name="dailyRate" value="<%= bike.dailyRate %>" readonly><br>
+        <label for="dailyRate">Daily Rate: </label>
+        <input type="text" id="dailyRate" name="dailyRate" value="R<%= bike.dailyRate %>" readonly><br>
       </main>
     <section class="rentals-section">
       <h1>Rental Details</h1>
@@ -35,14 +34,11 @@
       <input type="date" id="end-date" name="end-date"><br>
     </section>
 
-    <section class="checkout-section">
-      <h1>Checkout Details</h1>
-      <p>Total: </p>
-    </section>
-
       <input type="submit" value="Rent Bike" class="button">
       </form>
 
-      <a href="/bikeRental" class="back-button">Back</a>
+      <a href="/bikeRental" class="back-button">Back</a>   
   </body>
+
+
 </html>
