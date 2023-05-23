@@ -12,7 +12,7 @@ router.get('/', async (req, res, next) => {
   }
 });
 
-router.post('/', async (req, res, next) => {
+/*router.post('/', async (req, res, next) => {
   try {
     var firstName = req.body.firstname;
     var lastName = req.body.lastname;    
@@ -23,7 +23,7 @@ router.post('/', async (req, res, next) => {
   } catch (err) {
     next(err);
   }
-});
+});*/
 
 router.delete('/', async (req, res, next) => {
   try { 
@@ -36,15 +36,17 @@ router.delete('/', async (req, res, next) => {
   }
 });
 
-router.put('/', async (req, res, next) => {
+router.post('/', async (req, res, next) => {
   try {
-    var userId = req.body.userId;
-    var firstName = req.body.firstname;
-    var lastName = req.body.lastname;    
+    console.log("FIRED!!!");
+
+    var oldEmail = req.body.oldEmail;
+    var firstName = req.body.firstName;
+    var lastName = req.body.lastName;    
     var emailAddress = req.body.emailAddress;
 
-    const userInfo = await userController.updateUser(userId, firstName, lastName, emailAddress);
-    res.status(201).send({ message: `Successfully updated user`});
+    const userInfo = await userController.updateUser(oldEmail, firstName, lastName, emailAddress);
+    res.redirect('/');
   } catch (err) {
     next(err);
   }

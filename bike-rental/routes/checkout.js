@@ -29,7 +29,7 @@ router.get('/', function(req, res, next) {
   
       const rentalInfo = await checkoutController.createNewRental(bikeId, userId, rentalStart, rentalEnd);
       await checkoutController.updateBikeStatus(2, bikeId);
-      res.status(201).send({ message: `Successfully created rental booking` });
+      res.redirect('/');
     } catch (err) {
       next(err);
     }

@@ -18,7 +18,7 @@ const getUserInfo = (emailAddress) => {
     });
 };
 
-const createNewUser = (firstname, lastname, emailAddress) => {
+/*const createNewUser = (firstname, lastname, emailAddress) => {
     return new Promise((res, rej) => {
         pool.query(`INSERT INTO users(firstname, lastname, emailAddress) VALUES (?, ?, ?)`, [firstname, lastname, emailAddress], (error) => {
             if (error) {
@@ -29,7 +29,7 @@ const createNewUser = (firstname, lastname, emailAddress) => {
             res(true);
         });
     });
-};
+};*/
 
 const removeUser = (emailAddress) => {
     return new Promise((res, rej) => {
@@ -46,9 +46,9 @@ const removeUser = (emailAddress) => {
 
 /*Can still change. This only implements the updating of user information but requires them to add all information. 
 Meaning if they only want to update their email, they will have to enter their first and last names*/
-const updateUser = (userId, firstname, lastname, emailAddress) => {
+const updateUser = (oldEmail, firstname, lastname, emailAddress) => {
     return new Promise((res, rej) => {
-        pool.query(`UPDATE users SET firstname = ?, lastname = ?, emailAddress = ? WHERE userId = ?`, [firstname, lastname, emailAddress, userId], (error) => {
+        pool.query(`UPDATE users SET firstname = ?, lastname = ?, emailAddress = ? WHERE emailAddress = ?`, [firstname, lastname, emailAddress, oldEmail], (error) => {
             if (error) {
                 console.error('Error occured when executing query: ', error);
                 rej(error);
@@ -61,7 +61,7 @@ const updateUser = (userId, firstname, lastname, emailAddress) => {
 
 module.exports = {
     getUserInfo,
-    createNewUser,
+    //createNewUser,
     removeUser,
     updateUser,
 };

@@ -9,7 +9,6 @@ const getLoginPage = (req, res) => {
 // Handle login form submission
 const login = (req, res) => {
   const { email, password } = req.body;
-  console.log(email);
   // Find user by email
   const query = "SELECT userId, password, passwordSalt FROM Users WHERE emailAddress = ?";
   pool.query(query, [email], (error, results) => {
@@ -19,12 +18,10 @@ const login = (req, res) => {
       res.render("login", { error: "Invalid email or password" });
     } else {
       const user = results[0];
-      console.log(user);
       const hashedPassword = crypto
         .createHash("sha256")
         .update(password + user.passwordSalt)
         .digest("hex");
-      console.log(hashedPassword);
       if (hashedPassword === user.password) {
         // Passwords match, create session
         req.session.isAuthenticated = true;
@@ -45,6 +42,19 @@ const logout = (req, res) => {
       console.log("Error while destroying session:", error);
     }
     res.redirect("/login");
+  });
+};
+
+const createNewUser = (firstname, lastname, emailAddress) => {
+  return new Promise((res, rej) => {
+      pool.query(`INSERT INTO users(firstname, lastname, emailAddress) VALUES (?, ?, ?)`, [firstname, lastname, emailAddress], (error) => {
+          if (error) {
+              console.error('Error occured when executing query: ', error);
+              rej(error);
+              return;
+          }
+          res(true);
+      });
   });
 };
 

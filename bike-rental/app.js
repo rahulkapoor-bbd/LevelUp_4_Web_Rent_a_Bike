@@ -1,6 +1,5 @@
 const express = require('express');
 const session = require('express-session');
-const bodyParser = require('body-parser');
 const db = require('./dbconnection/db');
 var path = require('path');
 const pool = require('./dbconnection/db');
@@ -31,8 +30,6 @@ app.use(
     saveUninitialized: true
   })
 );
-
-app.use(bodyParser.urlencoded({ extended: true }));
 
 // Middleware to check if the user is authenticated
 const requireAuth = (req, res, next) => {
