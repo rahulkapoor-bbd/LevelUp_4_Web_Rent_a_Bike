@@ -9,4 +9,23 @@ const adminController = require('../controllers/adminController');
     }
   });
 
+
+  router.post('/', async (req, res, next) => {
+    try {
+      const bikeType = Number.parseInt(req.body.bikeType); 
+      const dailyRate = Number.parseInt(req.body.dailyRate);
+      const statusId = 1;
+
+
+      console.log(bikeType);
+      console.log(dailyRate);
+
+      const rentalInfo = await adminController.addBike(bikeType, statusId, dailyRate);
+      res.redirect('/');
+  
+    } catch (err) {
+      next(err);
+    }
+  });
+
 module.exports = router;

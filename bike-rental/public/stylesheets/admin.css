@@ -13,12 +13,17 @@ body {
   
   h1 {
     text-align: center;
+    margin-top: 10%;
   }
   
+  .information-heading {
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    font-size: 24px;
+    font-weight: bold;
+  }
 
-  label {
-    display: block;
-    margin-bottom: 10px;
+  main {
+    text-align: center;
   }
   
   input[type="checkbox"],

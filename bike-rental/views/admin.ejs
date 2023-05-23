@@ -2,21 +2,22 @@
 <html>
 <head>
   <title>Upload New Bike</title>
-  <link rel="stylesheet" href="/stylesheets/admin.css"?
+  <link rel="stylesheet" href="/stylesheets/admin.css" />
 </head>
 <body>
   <h1>Upload New Bike</h1>
 
-  <form action="/upload" method="POST">
-    <label for="bikeType">Select the bike type:</label>
-    <label><input type="checkbox" name="bikeType" value="mountain"> Mountain Bike</label>
-    <label><input type="checkbox" name="bikeType" value="road"> Road Bike</label>
-    <label><input type="checkbox" name="bikeType" value="hybrid"> Hybrid Bike</label>
-
-    <label for="dailyRate">Daily Rate:</label>
-    <input type="text" name="dailyRate" placeholder="Enter the daily rate">
-
+  <form action="/admin" method="POST">
+    <main>
+    <label for="bikeType" class="information-heading">Select the bike type:</label><br>
+    <label><input type="radio" name="bikeType" value="1"> Mountain Bike</label>
+    <label><input type="radio" name="bikeType" value="2"> Road Bike</label>
+    <label><input type="radio" name="bikeType" value="3"> Hybrid Bike</label>
+    <label><input type="radio" name="bikeType" value="4"> Gravel Bike</label><br>
+    <label for="dailyRate" class="information-heading">Daily Rate:</label><br>
+    <input type="text" name="dailyRate"><br>
     <button type="submit">Upload</button>
+  </main>
   </form>
 
 </body>
