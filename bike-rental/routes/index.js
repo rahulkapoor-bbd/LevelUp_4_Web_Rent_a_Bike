@@ -1,5 +1,6 @@
 const router = require('express').Router();
 const userController = require('../controllers/userController');
+const { getWeatherInfo } = require('../controllers/weatherController');
 
 /* GET home page. */
 router.get('/', async function(req, res, next) {
@@ -14,11 +15,13 @@ router.get('/', async function(req, res, next) {
     }else {
       isAdmin = false
     }
+
+    const weatherInfo = await getWeatherInfo('Johannesburg');
     
     console.log(user.userId);
     console.log(adminId);
 
-    res.render('index', { data: isAdmin });
+    res.render('index', { data: isAdmin, weather: weatherInfo });
   } catch (err) {
     next(err);
   }
