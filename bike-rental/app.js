@@ -51,7 +51,7 @@ app.use('/bikeRental', requireAuth, bikeRentalRouter);
 app.use('/bikeDetails', requireAuth, bikeDetailsRouter);
 app.use('/checkout', requireAuth, checkoutRouter);
 app.use('/admin', requireAuth, adminRouter);
-app.use('/health', requireAuth, healthRouter);
+app.use('/health', healthRouter);
 
 app.listen(3000,"0.0.0.0" , () => {
   console.log('Listening on '+ 3000);

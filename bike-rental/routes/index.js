@@ -14,9 +14,6 @@ router.get('/', async function(req, res, next) {
     }else {
       isAdmin = false
     }
-    
-    console.log(user.userId);
-    console.log(adminId);
 
     res.render('index', { data: isAdmin });
   } catch (err) {
