@@ -5,7 +5,7 @@ const checkoutController = require('../controllers/checkoutController');
 router.get('/', function(req, res, next) {
     const { bikeId, bikeType, dailyRate, 'start-date': startDate, 'end-date': endDate } = req.query;
     
-    const rate = parseFloat(dailyRate.substring(1));
+    const rate = parseFloat(dailyRate);
     const start = new Date(startDate);
     const end = new Date(endDate);
     const daysDifference = Math.floor((end - start) / (1000 * 60 * 60 * 24));
@@ -21,9 +21,9 @@ router.get('/', function(req, res, next) {
   router.post('/', async (req, res, next) => {
     try {
       
-      // TODO: Fetch the userId from the logged-in user instead of hardcoding
       var bikeId = req.body.bikeId;
-      var userId = 1;
+      var user = req.session.user;
+      var userId = user.userId;
       var rentalStart = req.body.startDate;
       var rentalEnd = req.body.endDate;
   
