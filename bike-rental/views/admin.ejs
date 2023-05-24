@@ -5,20 +5,42 @@
   <link rel="stylesheet" href="/stylesheets/admin.css" />
 </head>
 <body>
-  <h1>Upload New Bike</h1>
+  <header>
+    <nav>
+      <a href="/">Home</a>
+      <a href="/bikeRental">Rentals</a>
+      <a href="/admin">Admin Panel</a>
+      <a href="/user">User Profile</a>
+    </nav>
+  </header>
 
-  <form action="/admin" method="POST">
-    <main>
-    <label for="bikeType" class="information-heading">Select the bike type:</label><br>
-    <label><input type="radio" name="bikeType" value="1"> Mountain Bike</label>
-    <label><input type="radio" name="bikeType" value="2"> Road Bike</label>
-    <label><input type="radio" name="bikeType" value="3"> Hybrid Bike</label>
-    <label><input type="radio" name="bikeType" value="4"> Gravel Bike</label><br>
-    <label for="dailyRate" class="information-heading">Daily Rate:</label><br>
-    <input type="text" name="dailyRate"><br>
-    <button type="submit">Upload</button>
+  <main>
+    <h1>Upload New Bike</h1>
+    <section>
+      <form action="/admin" method="POST">
+          <fieldset class="form-section">
+            <legend>Select the bike type:</legend>
+            <label for="bikeType" class="information-heading">Select the bike type:</label><br>
+            <label><input type="radio" name="bikeType" value="1"> Mountain Bike</label>
+            <label><input type="radio" name="bikeType" value="2"> Road Bike</label>
+            <label><input type="radio" name="bikeType" value="3"> Hybrid Bike</label>
+            <label><input type="radio" name="bikeType" value="4"> Gravel Bike</label><br>
+            <label for="dailyRate" class="information-heading">Daily Rate:</label><br>
+          </fieldset>
+          
+          <fieldset>
+            <legend>Daily Rate:</legend>
+            <input type="text" name="dailyRate"><br>
+          </fieldset>
+          
+        <button type="submit">Upload</button>
+      </form>
+    </section>
   </main>
-  </form>
+
+  <footer>
+    <p>&copy; UBike</p>
+  </footer>
 
 </body>
 </html>
