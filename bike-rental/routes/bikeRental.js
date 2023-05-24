@@ -1,4 +1,4 @@
-var router = require('express').Router();
+const router = require('express').Router();
 const bikeRentalController = require('../controllers/bikeRentalController');
 
   router.get('/', async (req, res, next) => {

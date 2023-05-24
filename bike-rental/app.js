@@ -1,8 +1,6 @@
 const express = require('express');
 const session = require('express-session');
-const db = require('./dbconnection/db');
-var path = require('path');
-const pool = require('./dbconnection/db');
+const path = require('path');
 const bodyParser = require('body-parser');
 
 const indexRouter = require('./routes/index');
@@ -12,6 +10,7 @@ const bikeDetailsRouter = require('./routes/bikeDetails');
 const authRouter = require('./routes/userAuth');
 const checkoutRouter = require('./routes/checkout');
 const adminRouter = require('./routes/admin');
+const healthRouter = require('./routes/health');
 
 
 const app = express();
@@ -52,6 +51,7 @@ app.use('/bikeRental', requireAuth, bikeRentalRouter);
 app.use('/bikeDetails', requireAuth, bikeDetailsRouter);
 app.use('/checkout', requireAuth, checkoutRouter);
 app.use('/admin', requireAuth, adminRouter);
+app.use('/health', requireAuth, healthRouter);
 
 app.listen(3000,"0.0.0.0" , () => {
   console.log('Listening on '+ 3000);
