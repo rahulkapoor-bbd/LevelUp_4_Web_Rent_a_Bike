@@ -18,9 +18,6 @@ const createNewRental = (bikeId, userId, rentalStart, rentalEnd) => {
 };
 
 const updateBikeStatus = (statusId, bikeId) => {
-
-  /*console.log(statusId)
-  console.log(bikeId);*/
   return new Promise((res, rej) => {
     
     pool.query(`UPDATE bike SET statusId = ? WHERE bikeId = ?`, [statusId, bikeId], (error) => {

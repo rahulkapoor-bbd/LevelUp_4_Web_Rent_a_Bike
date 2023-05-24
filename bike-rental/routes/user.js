@@ -38,8 +38,6 @@ router.delete('/', async (req, res, next) => {
 
 router.post('/', async (req, res, next) => {
   try {
-    console.log("FIRED!!!");
-
     var oldEmail = req.body.oldEmail;
     var firstName = req.body.firstName;
     var lastName = req.body.lastName;    

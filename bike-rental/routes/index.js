@@ -19,9 +19,6 @@ router.get('/', async function(req, res, next) {
     const weatherInfoJ = await getWeatherInfo('Johannesburg');
     const weatherInfoC = await getWeatherInfo('Cape Town');
     const weatherInfoD = await getWeatherInfo('Durban');
-    
-    console.log(user.userId);
-    console.log(adminId);
 
     res.render('index', { data: isAdmin, weatherJ: weatherInfoJ, weatherC: weatherInfoC, weatherD: weatherInfoD });
   } catch (err) {

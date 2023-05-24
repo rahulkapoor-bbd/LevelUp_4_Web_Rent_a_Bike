@@ -1,9 +1,9 @@
 const mysql = require('mysql');
 
 const pool = mysql.createPool({
-  host: 'localhost',
-  user: 'stephenp',
-  password: 'Nodeproject1',
+  host: 'bikedb.cph9smjdgcof.af-south-1.rds.amazonaws.com',
+  user: 'admin',
+  password: 'RentABike',
   database: 'bikerental'
 });
 

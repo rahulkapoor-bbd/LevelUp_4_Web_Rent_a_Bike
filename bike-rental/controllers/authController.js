@@ -10,7 +10,7 @@ const getLoginPage = (req, res) => {
 const login = (req, res) => {
   const { email, password } = req.body;
   // Find user by email
-  const query = "SELECT userId, password, passwordSalt FROM Users WHERE emailAddress = ?";
+  const query = "SELECT userId, password, passwordSalt FROM users WHERE emailAddress = ?";
   pool.query(query, [email], (error, results) => {
     if (error || results.length === 0) {
       // User not found or database error
