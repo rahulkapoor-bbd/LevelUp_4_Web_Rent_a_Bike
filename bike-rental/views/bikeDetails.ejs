@@ -23,8 +23,9 @@
         <input type="text" id="bikeType" name="bikeType" value="<%= bike.typeDescription %>" readonly><br>
        
         <label for="dailyRate">Daily Rate: </label>
-        <input type="text" id="dailyRate" name="dailyRate" value="R<%= bike.dailyRate %>" readonly><br>
+        <input type="text" id="dailyRate" name="dailyRate" value="R<%= bike.dailyRate.toFixed(2) %>" readonly><br>
       </main>
+      
     <section class="rentals-section">
       <h1>Rental Details</h1>
       <label for="start-date">Start Date:</label><br>
