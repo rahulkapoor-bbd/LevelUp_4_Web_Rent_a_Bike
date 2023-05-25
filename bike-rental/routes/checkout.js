@@ -5,7 +5,9 @@ const checkoutController = require('../controllers/checkoutController');
 router.get('/', function(req, res, next) {
     const { bikeId, bikeType, dailyRate, 'start-date': startDate, 'end-date': endDate } = req.query;
     
-    const rate = parseFloat(dailyRate);
+    const rateString = dailyRate;
+    const rate = parseFloat(rateString.substring(1));
+    rate.toFixed(2);;
     const start = new Date(startDate);
     const end = new Date(endDate);
     const daysDifference = Math.floor((end - start) / (1000 * 60 * 60 * 24));
