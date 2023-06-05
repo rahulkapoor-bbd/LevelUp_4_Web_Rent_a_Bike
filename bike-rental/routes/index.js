@@ -3,7 +3,7 @@ const userController = require('../controllers/userController');
 const { getWeatherInfo } = require('../controllers/weatherController');
 
 /* GET home page. */
-router.get('/', async function(req, res, next) {
+router.get('/index.html', async function(req, res, next) {
   try {
     const user = req.session.user;
     const adminResults = await userController.getAdminID();

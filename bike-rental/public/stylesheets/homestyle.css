@@ -69,6 +69,7 @@ article.service {
   text-align: center;
   padding: 1rem;
   border: 3px solid #000000;
+  border-radius: 10%;
   background-color: white;
   transition: transform 0.3s ease;
 }
@@ -76,6 +77,14 @@ article.service {
 /* using basic a  */
 article.service:hover {
   transform: scale(1.05);
+  background-color: aqua;
+  border: 5px solid #000000;
+}
+
+.flexDisplay {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
 }
 
 .center {
@@ -100,6 +109,7 @@ img {
 
 main {
   background-color: rgb(90, 188, 245, 0.3);
+  justify-content: center;
 }
 
 /* using ::after to contain float style in the section style part */
@@ -107,6 +117,21 @@ main::after {
   content: "";
   display: table;
   clear: both;
+}
+
+.card {
+  min-width: 350px;
+  max-width: 50%;
+}
+
+.cardList {
+  list-style-type: none;
+}
+
+.weatherText {
+  font-size: medium;
+  padding-bottom: 2.5%;
+  margin-left: -13%;
 }
 
 .footer-text {
